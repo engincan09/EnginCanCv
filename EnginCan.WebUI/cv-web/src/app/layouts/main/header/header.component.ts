@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // Typed Initiate
-    if ($('.typed-text-output').length == 1) {
-      var typed_strings = $('.typed-text').text();
-      var typed = new Typed('.typed-text-output', {
+    if ($('.typed').length == 1) {
+      var typed_strings = $('.typed').attr('data-typed-items');
+      var typed = new Typed('.typed', {
         strings: typed_strings.split(', '),
         typeSpeed: 100,
         backSpeed: 20,
@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
         loop: true,
       });
     }
-
   }
 
 }

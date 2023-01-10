@@ -26,6 +26,9 @@ namespace EnginCan.Dal.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AltAciklama")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -58,6 +61,15 @@ namespace EnginCan.Dal.Migrations
 
                     b.Property<string>("OzetMetin")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sehir")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short>("Yas")
+                        .HasColumnType("smallint");
 
                     b.HasKey("Id");
 

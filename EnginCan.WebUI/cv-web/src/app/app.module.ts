@@ -22,6 +22,7 @@ registerLocaleData(localeTr, 'tr-TR');
     RouterModule.forRoot(AppRoutes, {
       onSameUrlNavigation: 'reload',
       scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
     }),
     ReactiveFormsModule,
     ToastrModule.forRoot({

@@ -1,21 +1,15 @@
-<nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-  <a href="index.html" class="navbar-brand ml-lg-3">
-      <h1 class="m-0 display-5"><span class="text-primary-header">Engin</span>Can</h1>
-  </a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-      <div class="navbar-nav m-auto py-0">
-          <a href="#home" class="nav-item nav-link active">Ana Sayfa</a>
-          <a href="#about" class="nav-item nav-link">Ben Kimim</a>
-          <a href="#qualification" class="nav-item nav-link">Quality</a>
-          <a href="#skill" class="nav-item nav-link">Skill</a>
-          <a href="#service" class="nav-item nav-link">Service</a>
-          <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-          <a href="#testimonial" class="nav-item nav-link">Review</a>
-          <a href="#contact" class="nav-item nav-link">Contact</a>
-      </div>
-      <a href="" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
-  </div>
-</nav>
+<i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+<header id="header" class="d-flex flex-column justify-content-center">
+
+  <nav id="navbar" class="navbar nav-menu">
+    <ul>
+      <li><a [routerLink] = "['/']"  fragment="hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+      <li><a  [routerLink] = "['/']"  fragment="about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+      <li><a  [routerLink] = "['/']"  fragment="resume"class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+      <li><a  [routerLink] = "['/']"  fragment="skills"class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span>Skills</span></a></li>
+
+      <li><a  [routerLink] = "['/']"  fragment="contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+
+</header>

@@ -47,7 +47,6 @@ namespace EnginCan.Api.Controllers.Abouts
         /// Tekil bilgisine göre About döndürür
         /// </summary>
         [HttpGet, Route("GetById/{key:int}")]
-        [Authorize]
         [Produces("application/json")]
         public IActionResult GetById([FromRoute] int key)
         {

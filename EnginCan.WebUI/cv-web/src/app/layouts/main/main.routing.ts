@@ -1,3 +1,4 @@
+import { AboutComponent } from './about/about.component';
 import { Routes } from '@angular/router';
 
 import { MainComponent } from './main.component';

@@ -44,5 +44,25 @@ namespace EnginCan.Entity.Models.Abouts
         /// Hakkımda özet yazı
         /// </summary>
         public string OzetMetin { get; set; }
+        
+        /// <summary>
+        /// Ek açıklama
+        /// </summary>
+        public string AltAciklama { get; set; }
+
+        /// <summary>
+        /// Yaş bilgisi
+        /// </summary>
+        public short Yas { get; set; }
+
+        /// <summary>
+        /// Web sitesi url adresi
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
+        /// şehir bilgisi
+        /// </summary>
+        public string Sehir { get; set; }
     }
 }
