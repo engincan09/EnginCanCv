@@ -10,6 +10,26 @@
             <form id="quickForm" [formGroup]="aboutForm" class="p-fluid grid formgrid">
               <div class="card-body">
                 <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="card-body box-profile">
+                      <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle" src="{{about.photo}}"
+                          alt="User profile picture">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Fotoğraf</label>
+                      <div class="custom-file">
+                        <input type="file" id="image" name="FUImage" accept=".png, .jpg, .jpeg"
+                          (change)="handleFileInput($event.target.files)" [(ngModel)]="about.photo"
+                          class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">{{about.photo?"Fotoğraf
+                          Seçildi":"Fotoğraf Seçiniz.."}}</label>
+                      </div>
+                    </div>
+
+                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputName">Ad Soyad *</label>
@@ -35,7 +55,8 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleInputSurname">Doğum Tarihi *</label>
-                      <p-calendar class="field"  [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" inputId="basic" [(ngModel)]="about.dogumTarih"  formControlName="dogumTarih"></p-calendar> 
+                      <p-calendar class="field" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"
+                        inputId="basic" [(ngModel)]="about.dogumTarih" formControlName="dogumTarih"></p-calendar>
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.dogumTarih.touched || submitted) && formControl.dogumTarih.errors?.required">
                         <sup>*</sup>Lütfen bir tarih giriniz!
@@ -69,9 +90,8 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputName">Site Url *</label>
-                      <input [(ngModel)]="about.url" type="text" name="url" required
-                        class="form-control" formControlName="mezuniyetDurum" id="exampleInputName"
-                        placeholder="Site URL Adresi Giriniz" required>
+                      <input [(ngModel)]="about.url" type="text" name="url" required class="form-control"
+                        formControlName="url" id="exampleInputName" placeholder="Site URL Adresi Giriniz" required>
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.url.touched || submitted) && formControl.url.errors?.required">
                         <sup>*</sup>Lütfen bir site url adresi giriniz!
@@ -81,9 +101,8 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputName">Şehir Bilgisi *</label>
-                      <input [(ngModel)]="about.sehir" type="text" name="sehir" required
-                        class="form-control" formControlName="sehir" id="exampleInputName"
-                        placeholder="Şehir Bilgisi Giriniz" required>
+                      <input [(ngModel)]="about.sehir" type="text" name="sehir" required class="form-control"
+                        formControlName="sehir" id="exampleInputName" placeholder="Şehir Bilgisi Giriniz" required>
                       <span class="text-danger ml-1"
                         *ngIf="(formControl.sehir.touched || submitted) && formControl.sehir.errors?.required">
                         <sup>*</sup>Lütfen şehir bilgisi giriniz!
@@ -104,13 +123,15 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Özet Hakkımda Yazısı *</label>
-                      <textarea [(ngModel)]="about.ozetMetin"  formControlName="ozetMetin"  placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
+                      <textarea [(ngModel)]="about.ozetMetin" formControlName="ozetMetin"
+                        placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Özet Hakkımda Yazısı (Alt Bölüm) *</label>
-                      <textarea [(ngModel)]="about.altAciklama"  formControlName="altAciklama"  placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
+                      <textarea [(ngModel)]="about.altAciklama" formControlName="altAciklama"
+                        placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
                     </div>
                   </div>
                 </div>

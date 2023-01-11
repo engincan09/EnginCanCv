@@ -13,6 +13,9 @@ using EnginCan.Core.Utilities.Results.Concrete;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using EnginCan.Entity.Shared;
+using Autofac.Core;
+using EnginCan.Dto.Shared;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EnginCan.Bll.EntityCore.Concrete.Abouts
 {
@@ -118,6 +121,5 @@ namespace EnginCan.Bll.EntityCore.Concrete.Abouts
             }
 
         }
-
     }
 }

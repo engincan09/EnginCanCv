@@ -8,6 +8,7 @@ import { About } from './models/about.model';
 import { AboutService } from './services/about.service';
 import { DatePipe, formatDate } from '@angular/common';
 import { DataStatus } from 'src/app/shared/models/base-entity.model';
+import { UploadImage } from './dtos/image-upload.dto';
 
 @Component({
   selector: 'app-about',
@@ -21,6 +22,7 @@ export class AboutComponent implements OnInit {
   submitted = false;
   aboutForm: FormGroup;
   aboutId: number;
+  imageBaseData: string | ArrayBuffer = null;
   constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -46,6 +48,8 @@ export class AboutComponent implements OnInit {
     this.submitted = true;
     if (this.aboutForm.valid) {
       let model: About = Object.assign({}, this.aboutForm.value);
+      console.log(model, 'md');
+
       model.dogumTarih = new Date(model.dogumTarih);
       model.dataStatus = DataStatus[DataStatus.Activated];
       if (this.about.id) {
@@ -62,7 +66,6 @@ export class AboutComponent implements OnInit {
     this.aboutService.postAbout(model).subscribe((res) => {
       if (res.success) {
         this.toastr.success(res.messages, 'Başarılı!');
-        this.routeChange();
       } else {
         this.toastr.error(res.messages, 'Hata!');
       }
@@ -72,7 +75,6 @@ export class AboutComponent implements OnInit {
     this.aboutService.updateAbout(model).subscribe((res) => {
       if (res.success) {
         this.toastr.success(res.messages, 'Başarılı!');
-        this.routeChange();
       } else {
         this.toastr.error(res.messages, 'Hata!');
       }
@@ -91,7 +93,7 @@ export class AboutComponent implements OnInit {
       yas: ['', [Validators.required]],
       url: ['', [Validators.required]],
       sehir: ['', [Validators.required]],
-      // photo:['',Validators.required]
+      photo: [''],
     });
   }
 
@@ -108,12 +110,8 @@ export class AboutComponent implements OnInit {
       yas: ['', [Validators.required]],
       url: ['', [Validators.required]],
       sehir: ['', [Validators.required]],
-      // photo:['',Validators.required]
+      photo: [''],
     });
-  }
-
-  routeChange() {
-    this.router.navigate(['/yonetim/hakkimda']);
   }
 
   getAbout(aboutId: number) {
@@ -121,5 +119,20 @@ export class AboutComponent implements OnInit {
       this.about = res.data;
       this.about.dogumTarih = new Date(this.about.dogumTarih);
     });
+  }
+
+  handleFileInput(files: FileList) {
+    let me = this;
+    let file = files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      me.aboutForm.patchValue({ photo: reader.result.toString() });
+
+      me.about.photo = reader.result.toString();
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
   }
 }

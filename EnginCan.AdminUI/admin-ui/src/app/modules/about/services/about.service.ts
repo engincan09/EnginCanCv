@@ -25,10 +25,14 @@ export class AboutService {
 
   postAbout(model) {
     return this.http
-      .post(environment.api, {
-        url: 'About/PostAbout/',
-        version: '1.0',
-      },model)
+      .post(
+        environment.api,
+        {
+          url: 'About/PostAbout/',
+          version: '1.0',
+        },
+        model
+      )
       .pipe(
         map((data) => {
           return data;
@@ -37,10 +41,14 @@ export class AboutService {
   }
   updateAbout(model) {
     return this.http
-      .post(environment.api, {
-        url: 'About/UpdateAbout/',
-        version: '1.0',
-      },model)
+      .post(
+        environment.api,
+        {
+          url: 'About/UpdateAbout/',
+          version: '1.0',
+        },
+        model
+      )
       .pipe(
         map((data) => {
           return data;
@@ -50,7 +58,7 @@ export class AboutService {
   deleteAbout(id) {
     return this.http
       .get(environment.api, {
-        url: 'About/DeleteAbout/'+id,
+        url: 'About/DeleteAbout/' + id,
         version: '1.0',
       })
       .pipe(
@@ -60,16 +68,31 @@ export class AboutService {
       );
   }
 
-  getAbout(id:number){
+  getAbout(id: number) {
     return this.http
-    .get(environment.api, {
-      url: 'About/GetById/'+id,
-      version: '1.0',
-    })
-    .pipe(
-      map((data) => {
-        return data;
+      .get(environment.api, {
+        url: 'About/GetById/' + id,
+        version: '1.0',
       })
-    );
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  uploadFile(data) {
+    return this.http
+      .post(environment.api, {
+        url: 'About/UploadFile',
+        version: '1.0',
+      },
+      data)
+      .pipe(
+        map((res: any) => {
+          console.log(res);
+          return res;
+        })
+      );
   }
 }
