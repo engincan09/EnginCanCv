@@ -22,4 +22,19 @@ import { BaseEntity } from "src/app/shared/models/base-entity.model";
 
         /**Hakkımda özet yazı */
         ozetMetin: string;
+
+                /**Ek açıklama */
+        altAciklama: string;
+
+        /**Yaş bilgisi */
+        yas: number;
+
+        /**Web sitesi url adresi */
+        url: string;
+
+        /**şehir bilgisi */
+        sehir: string;
+
+        /**Fotoğraf */
+        photo:string;
     }

@@ -64,5 +64,10 @@ namespace EnginCan.Entity.Models.Abouts
         /// şehir bilgisi
         /// </summary>
         public string Sehir { get; set; }
+
+        /// <summary>
+        /// Fotoğraf bilgisi
+        /// </summary>
+        public string Photo { get; set; }
     }
 }

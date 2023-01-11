@@ -21,6 +21,17 @@
                       </span>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Yaş Bilgisi *</label>
+                      <input [(ngModel)]="about.yas" type="number" name="yas" required class="form-control"
+                        formControlName="yas" id="exampleInputName" placeholder="Yaş Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.yas.touched || submitted) && formControl.yas.errors?.required">
+                        <sup>*</sup>Lütfen bir yaş bilgisi giriniz!
+                      </span>
+                    </div>
+                  </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleInputSurname">Doğum Tarihi *</label>
@@ -55,7 +66,30 @@
                       </span>
                     </div>
                   </div>
-
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Site Url *</label>
+                      <input [(ngModel)]="about.url" type="text" name="url" required
+                        class="form-control" formControlName="mezuniyetDurum" id="exampleInputName"
+                        placeholder="Site URL Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.url.touched || submitted) && formControl.url.errors?.required">
+                        <sup>*</sup>Lütfen bir site url adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Şehir Bilgisi *</label>
+                      <input [(ngModel)]="about.sehir" type="text" name="sehir" required
+                        class="form-control" formControlName="sehir" id="exampleInputName"
+                        placeholder="Şehir Bilgisi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.sehir.touched || submitted) && formControl.sehir.errors?.required">
+                        <sup>*</sup>Lütfen şehir bilgisi giriniz!
+                      </span>
+                    </div>
+                  </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Mail Adresi *</label>
@@ -71,6 +105,12 @@
                     <div class="form-group">
                       <label for="exampleInputEmail1">Özet Hakkımda Yazısı *</label>
                       <textarea [(ngModel)]="about.ozetMetin"  formControlName="ozetMetin"  placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Özet Hakkımda Yazısı (Alt Bölüm) *</label>
+                      <textarea [(ngModel)]="about.altAciklama"  formControlName="altAciklama"  placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
                     </div>
                   </div>
                 </div>

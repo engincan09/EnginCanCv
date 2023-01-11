@@ -6,15 +6,14 @@ import { CustomvalidationService } from 'src/app/shared/services/custom-validati
 import { environment } from 'src/environments/environment';
 import { About } from './models/about.model';
 import { AboutService } from './services/about.service';
-import {DatePipe, formatDate} from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 import { DataStatus } from 'src/app/shared/models/base-entity.model';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
-  providers: [DatePipe]
-
+  providers: [DatePipe],
 })
 export class AboutComponent implements OnInit {
   about: About = new About();
@@ -88,19 +87,27 @@ export class AboutComponent implements OnInit {
       deneyimSuresi: ['', Validators.required],
       email: ['', Validators.required],
       ozetMetin: ['', [Validators.required]],
+      altAciklama: ['', [Validators.required]],
+      yas: ['', [Validators.required]],
+      url: ['', [Validators.required]],
+      sehir: ['', [Validators.required]],
       // photo:['',Validators.required]
     });
   }
 
   createAboutUpdateForm() {
     this.aboutForm = this.formBuilder.group({
-      id:this.aboutId,
+      id: this.aboutId,
       fullName: ['', Validators.required],
       dogumTarih: ['', Validators.required],
       mezuniyetDurum: ['', Validators.required],
       deneyimSuresi: ['', Validators.required],
       email: ['', Validators.required],
       ozetMetin: ['', [Validators.required]],
+      altAciklama: ['', [Validators.required]],
+      yas: ['', [Validators.required]],
+      url: ['', [Validators.required]],
+      sehir: ['', [Validators.required]],
       // photo:['',Validators.required]
     });
   }
@@ -112,8 +119,7 @@ export class AboutComponent implements OnInit {
   getAbout(aboutId: number) {
     this.aboutService.getAbout(aboutId).subscribe((res) => {
       this.about = res.data;
-     this.about.dogumTarih =  new Date(this.about.dogumTarih);
-      
+      this.about.dogumTarih = new Date(this.about.dogumTarih);
     });
   }
 }
