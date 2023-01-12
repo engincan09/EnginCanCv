@@ -34,4 +34,7 @@ import { BaseEntity } from "src/app/shared/core/models/base-entity.model";
 
         /**şehir bilgisi */
         sehir: string;
+
+        /**Fotoğraf bilgisi */
+        photo:string;
     }
