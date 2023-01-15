@@ -4,14 +4,16 @@ using EnginCan.Dal.EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnginCan.Dal.Migrations
 {
     [DbContext(typeof(EnginCanContext))]
-    partial class EnginCanContextModelSnapshot : ModelSnapshot
+    [Migration("20230114171802_YeteneklerSayfasiAcildi")]
+    partial class YeteneklerSayfasiAcildi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -420,20 +422,7 @@ namespace EnginCan.Dal.Migrations
                         },
                         new
                         {
-                            Id = 17,
-                            AllName = "Yönetim Paneli / Hakkımda",
-                            AllRouterLink = "/yonetim/hakkimda",
-                            HomeWidget = false,
-                            Icon = "fa fa-address-card",
-                            MenuShow = true,
-                            Name = "Hakkımda",
-                            Order = (short)1,
-                            ParentId = 1,
-                            RouterLink = "/hakkimda"
-                        },
-                        new
-                        {
-                            Id = 18,
+                            Id = 16,
                             AllName = "Yönetim Paneli / Yetenekler",
                             AllRouterLink = "/yonetim/yetenekler",
                             HomeWidget = false,
@@ -613,22 +602,12 @@ namespace EnginCan.Dal.Migrations
                         },
                         new
                         {
-                            Id = 17,
+                            Id = 16,
                             CreatedAt = new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CreatedUserId = 1,
                             DataStatus = 2,
                             Forbidden = false,
-                            PageId = 17,
-                            RoleId = 1
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CreatedAt = new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedUserId = 1,
-                            DataStatus = 2,
-                            Forbidden = false,
-                            PageId = 18,
+                            PageId = 16,
                             RoleId = 1
                         });
                 });

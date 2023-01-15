@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit {
       var typed_strings = $('.typed').attr('data-typed-items');
       var typed = new Typed('.typed', {
         strings: typed_strings.split(', '),
-        typeSpeed: 100,
-        backSpeed: 20,
-        smartBackspace: false,
         loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
       });
     }
   }

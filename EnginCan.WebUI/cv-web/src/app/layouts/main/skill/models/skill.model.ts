@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/app/shared/models/base-entity.model";
+import { BaseEntity } from "src/app/shared/core/models/base-entity.model";
 
 /**Yeteneklerin tutulduğu tablodur */
 export class Skill extends BaseEntity {

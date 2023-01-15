@@ -1,3 +1,56 @@
-<p>
-  skill works!
-</p>
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Hakkımda Bilgisi Ekle/Güncelle</h3>
+        </div>
+        <div class="card-body">
+          <div class="custom-form">
+            <form id="quickForm" [formGroup]="skillForm" class="p-fluid grid formgrid">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Yetenek Adı *</label>
+                      <input [(ngModel)]="skill.ad" type="text" name="ad" required class="form-control"
+                        formControlName="ad" id="exampleInputName" placeholder="Yetenek Adı Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.ad.touched || submitted) && formControl.ad.errors?.required">
+                        <sup>*</sup>Lütfen bir ad giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Oran (Seviye) *</label>
+                      <input [(ngModel)]="skill.oran" type="number" name="yas" required class="form-control"
+                        formControlName="oran" id="exampleInputName" placeholder="Oran Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.oran.touched || submitted) && formControl.oran.errors?.required">
+                        <sup>*</sup>Lütfen bir oran giriniz!
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary"
+                  (click)="saveSkill()">{{skill?.id?'Güncelle':'Kaydet'}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Yetenek Listesi</h3>
+        </div>
+        <div class="card-body"> 
+          <div id="jsGrid1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

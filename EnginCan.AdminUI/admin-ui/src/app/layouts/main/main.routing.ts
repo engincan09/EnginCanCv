@@ -1,3 +1,4 @@
+import { SkillComponent } from './../../modules/skill/skill.component';
 import { AboutComponent } from './../../modules/about/about.component';
 import { Routes } from '@angular/router';
 
@@ -19,9 +20,15 @@ export const MainRoutes: Routes = [
       },
       {
         path: 'hakkimda',
-        data: { pageId: 15 },
+        data: { pageId: 17 },
         canActivate: [AuthGuardService],
         component: AboutComponent
+      },
+      {
+        path: 'yetenekler',
+        data: { pageId: 18 },
+        canActivate: [AuthGuardService],
+        component: SkillComponent
       },
       {
         path: '**',

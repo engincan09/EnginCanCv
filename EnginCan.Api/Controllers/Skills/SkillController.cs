@@ -29,7 +29,6 @@ namespace EnginCan.Api.Controllers.Skills
         /// <param name="sicilId">Bordro tekil bilgisidir.</param>
         /// <returns>Istenen bordro detay bilgisini döndürür.</returns>
         [HttpGet, Route("GetAllSkill")]
-        [Authorize]
         [Produces("application/json")]
         public IActionResult GetAllSkills()
         {
@@ -87,7 +86,7 @@ namespace EnginCan.Api.Controllers.Skills
         /// <summary>
         /// Skill Siler
         /// </summary>
-        [HttpGet, Route("DeleteSkill/{key:int}")]
+        [HttpGet, Route("DeleteSkill/{id:int}")]
         [Authorize]
         [Produces("application/json")]
         public IActionResult DeleteSkill([FromRoute] int id)
