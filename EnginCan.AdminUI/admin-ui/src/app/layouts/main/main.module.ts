@@ -8,8 +8,9 @@ import { MainRoutes } from './main.routing';
 import { MainComponent } from './main.component';
 import { MainHomeComponent } from './main-home/main-home.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { QualificationComponent } from 'src/app/modules/qualification/qualification.component';
 @NgModule({
-  declarations: [MainComponent,MainHomeComponent,AboutComponent,SkillComponent],
+  declarations: [MainComponent,MainHomeComponent,QualificationComponent,AboutComponent,SkillComponent],
   providers:[DatePipe],
   imports: [
     CommonModule,

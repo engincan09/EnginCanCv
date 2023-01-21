@@ -161,7 +161,7 @@ namespace EnginCan.Dal.EfCore.Seed.Systems
                     Icon = "fa fa-address-card",
                     MenuShow = true
                 },
-                    new Page
+                new Page
                 {
                     Id = 18,
                     ParentId = 1,
@@ -171,6 +171,18 @@ namespace EnginCan.Dal.EfCore.Seed.Systems
                     RouterLink = "/yetenekler",
                     AllRouterLink = "/yonetim/yetenekler",
                     Icon = "fa fa-list",
+                    MenuShow = true
+                },
+                new Page
+                {
+                    Id = 19,
+                    ParentId = 1,
+                    Order = 1,
+                    Name = "Tecrübe-Eğitim",
+                    AllName = "Yönetim Paneli / Tecrübe-Eğitim",
+                    RouterLink = "/tecrube-egitim",
+                    AllRouterLink = "/yonetim/tecrube-egitim",
+                    Icon = "fa fa-id-badge",
                     MenuShow = true
                 },
         };

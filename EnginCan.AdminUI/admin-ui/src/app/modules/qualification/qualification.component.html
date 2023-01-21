@@ -1,0 +1,73 @@
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Tecrübe/Eğitim Bilgisi Ekle/Güncelle</h3>
+        </div>
+        <div class="card-body">
+          <div class="custom-form">
+            <form id="quickForm" [formGroup]="qualificationForm" class="p-fluid grid formgrid">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputName">Tip*</label>
+                      <select class="custom-select" name="qualificationType" formControlName="qualificationType"
+                        [(ngModel)]="qualification.qualificationType" id="qualificationType" required>
+                        <option [value]="type" *ngFor="let type of types">{{ qualificationTypeDataSource[type] }}
+                        </option>
+                      </select>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputName">Tecrübe/Eğitim *</label>
+                      <input [(ngModel)]="qualification.baslik" type="text" name="baslik" required class="form-control"
+                        formControlName="baslik" id="exampleInputName" placeholder="Tecrübe/eğitim Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.baslik.touched || submitted) && formControl.baslik.errors?.required">
+                        <sup>*</sup>Lütfen bir tecrübe/eğitim ad giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputName">Dönem*</label>
+                      <input [(ngModel)]="qualification.donem" type="text" name="donem" required class="form-control"
+                        formControlName="donem" id="exampleInputName" placeholder="Dönem Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.donem.touched || submitted) && formControl.donem.errors?.required">
+                        <sup>*</sup>Lütfen bir dönem giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Açıklama *</label>
+                      <textarea [(ngModel)]="qualification.aciklama" formControlName="aciklama"
+                        placeholder="Özet Metin Giriniz" class="form-control" rows="7"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary"
+                  (click)="saveQualification()">{{qualification?.id?'Güncelle':'Kaydet'}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Yetenek Listesi</h3>
+        </div>
+        <div class="card-body">
+          <div id="jsGrid1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

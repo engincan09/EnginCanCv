@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { MainHomeComponent } from './main-home/main-home.component';
 import { MainComponent } from './main.component';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
+import { QualificationComponent } from 'src/app/modules/qualification/qualification.component';
 
 export const MainRoutes: Routes = [
   {
@@ -29,6 +30,11 @@ export const MainRoutes: Routes = [
         data: { pageId: 18 },
         canActivate: [AuthGuardService],
         component: SkillComponent
+      }, {
+        path: 'tecrube-egitim',
+        data: { pageId: 19 },
+        canActivate: [AuthGuardService],
+        component: QualificationComponent
       },
       {
         path: '**',
