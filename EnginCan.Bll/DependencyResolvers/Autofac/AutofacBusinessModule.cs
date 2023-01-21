@@ -15,6 +15,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using EnginCan.Dal.EfCore;
+using EnginCan.Bll.EntityCore.Concrete.Qualifications;
+using EnginCan.Bll.EntityCore.Abstract.Qualifications;
 
 namespace EnginCan.Bll.DependencyResolvers.Autofac
 {
@@ -59,6 +61,10 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
 
             #region Abouts
             builder.RegisterType<AboutRepository>().As<IAboutRepository>().SingleInstance();
+            #endregion
+
+            #region Qualifications
+            builder.RegisterType<QualificationRepository>().As<IQualificationRepository>().SingleInstance();
             #endregion
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

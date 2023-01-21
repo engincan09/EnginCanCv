@@ -1,5 +1,6 @@
 ﻿using EnginCan.Dal.EfCore.Extensions;
 using EnginCan.Entity.Models.Abouts;
+using EnginCan.Entity.Models.Qualifications;
 using EnginCan.Entity.Models.Skills;
 using EnginCan.Entity.Models.Systems;
 using EnginCan.Entity.Models.Users;
@@ -37,7 +38,10 @@ namespace EnginCan.Dal.EfCore
 
         #region Skill
         public DbSet<Skill> Skill { get; set; }
+        #endregion
 
+        #region Qualification
+        public DbSet<Qualification> Qualification { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
