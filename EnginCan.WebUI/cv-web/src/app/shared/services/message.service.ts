@@ -244,12 +244,15 @@ export class MessageService {
     }
   };
 
-  onSubscribeSuccess = (res: any) => {
+  onSubscribeSuccess = (res: any,isDashboard:boolean) => {
     try {
       environment.isLoading = false;
       environment.isRequesting = false;
       if (res && res.success) {
-        this.notifyCreator(res, 'success', 'İşlem başarıyla gerçekleşti.');
+        if (isDashboard) {
+          this.notifyCreator(res, 'success', 'İşlem başarıyla gerçekleşti.');
+        }
+        
       } else if (res && res.error) {
         this.notifyCreator(res, 'error', 'Opss! Bir hata ile karşılaşıldı!');
       }

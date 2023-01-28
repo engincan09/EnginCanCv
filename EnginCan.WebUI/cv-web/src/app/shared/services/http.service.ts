@@ -23,7 +23,7 @@ export class HttpService {
   ) {}
   timeout: number = 900000;
 
-  get(env: Api, httpParameter: HttpParameter): Observable<any> {
+  get(env: Api, httpParameter: HttpParameter,isDashboard:boolean): Observable<any> {
     return this.http
       .get(
         `${env.endpoint}/${httpParameter.url}`,
@@ -34,7 +34,7 @@ export class HttpService {
         catchError(this.onCatch.bind(env, this)),
         tap(
           (res) => {
-            this.onSubscribeSuccess(res);
+            this.onSubscribeSuccess(res,false);
           },
           (error: any) => {
             this.onSubscribeError(error);
@@ -61,7 +61,7 @@ export class HttpService {
         timeout(this.timeout),
         tap(
           (res) => {
-            this.onSubscribeSuccess(res);
+            this.onSubscribeSuccess(res,true);
           },
           (error: any) => {
             this.onSubscribeError(error);
@@ -110,7 +110,7 @@ export class HttpService {
         timeout(this.timeout),
         tap(
           (res) => {
-            this.onSubscribeSuccess(res);
+            this.onSubscribeSuccess(res,true);
           },
           (error: any) => {
             this.onSubscribeError(error);
@@ -137,7 +137,7 @@ export class HttpService {
         timeout(this.timeout),
         tap(
           (res) => {
-            this.onSubscribeSuccess(res);
+            this.onSubscribeSuccess(res,true);
           },
           (error: any) => {
             this.onSubscribeError(error);
@@ -159,7 +159,7 @@ export class HttpService {
         timeout(this.timeout),
         tap(
           (res) => {
-            this.onSubscribeSuccess(res);
+            this.onSubscribeSuccess(res,true);
           },
           (error: any) => {
             this.onSubscribeError(error);
@@ -176,7 +176,7 @@ export class HttpService {
       timeout(this.timeout),
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -192,7 +192,7 @@ export class HttpService {
     return this.http.get(url, this.nativeOptions(options)).pipe(
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -208,7 +208,7 @@ export class HttpService {
       timeout(this.timeout),
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -225,7 +225,7 @@ export class HttpService {
       timeout(this.timeout),
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -242,7 +242,7 @@ export class HttpService {
       timeout(this.timeout),
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -259,7 +259,7 @@ export class HttpService {
       timeout(this.timeout),
       tap(
         (res) => {
-          this.onSubscribeSuccess(res);
+          this.onSubscribeSuccess(res,true);
         },
         (error: any) => {
           this.onSubscribeError(error);
@@ -398,8 +398,8 @@ export class HttpService {
    * onSubscribeSuccess
    * @param res
    */
-  private onSubscribeSuccess(res: any): void {
-    this.messageService.onSubscribeSuccess(res);
+  private onSubscribeSuccess(res: any,isDashboard:boolean): void {
+    this.messageService.onSubscribeSuccess(res,isDashboard);
   }
   /**
    * onSubscribeError

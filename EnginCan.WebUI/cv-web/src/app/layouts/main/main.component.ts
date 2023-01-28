@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import Typed from 'typed.js';
 declare var $: any;
 @Component({
   selector: 'app-main',
@@ -10,9 +9,6 @@ export class MainComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-   
-
-
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',

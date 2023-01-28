@@ -10,11 +10,12 @@ import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {ToastrModule} from "ngx-toastr";
+import { LoginComponent } from './layouts/admin/login/login.component';
 
 registerLocaleData(localeTr, 'tr-TR');
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

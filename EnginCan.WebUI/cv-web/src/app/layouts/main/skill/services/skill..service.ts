@@ -15,7 +15,7 @@ export class SkillService {
     .get(environment.api, {
       url: 'Skill/GetAllSkill',
       version: '1.0',
-    })
+    },false)
     .pipe(
       map((data) => {
         return data;

@@ -15,7 +15,7 @@ export class AboutService {
     .get(environment.api, {
       url: 'About/GetById/'+id,
       version: '1.0',
-    })
+    },false)
     .pipe(
       map((data) => {
         return data;

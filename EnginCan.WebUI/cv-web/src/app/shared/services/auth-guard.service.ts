@@ -47,7 +47,7 @@ export class AuthGuardService implements CanActivate {
               url: `PagePermission/CanActivate/${route.data.pageId? route.data.pageId: 0}`,
               version: '1.0',
               headers: headers
-            })
+            },false)
             .pipe(map(res => res))
             .subscribe(res => {
               if (res.isAuthority) {

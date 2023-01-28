@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Typed from 'typed.js';
 declare var $: any;
 @Component({
   selector: 'in-navbar',

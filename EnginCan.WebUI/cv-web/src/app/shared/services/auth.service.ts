@@ -69,7 +69,7 @@ export class AuthService {
       .get(environment.api, {
         url: 'User/LoginUser',
         version: '1.0',
-      })
+      },false)
       .pipe(
         map((data) => {
           this.currentUserSubject.next(<ResponseLogin>{
@@ -90,7 +90,7 @@ export class AuthService {
     .get(environment.api, {
       url: 'Page/GetPermissionPage',
       version: '1.0',
-    })
+    },false)
     .pipe(
       map((data) => {      
         return data.data;

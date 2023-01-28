@@ -1,21 +1,19 @@
-<main id="main">
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Skills</h2>
-            </div>
-            <div class="row skills-content">
-                <div class="col-lg-12">
-                    <div class="progress" *ngFor="let d of skills">
-                        <span class="skill">{{d.ad}} <i class="val">{{d.oran}}%</i></span>
-                        <div class="progress-bar-wrap">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="{{d.oran}}" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Skills</h2>
+        </div>
+        <div class="row skills-content">
+            <div class="col-lg-12">
+                <div class="progress" *ngFor="let d of skills">
+                    <span class="skill">{{d.ad}} <i class="val">{{d.oran}}%</i></span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{d.oran}}" aria-valuemin="0"
+                            aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End Skills Section -->
-</main>
+    </div>
+</section><!-- End Skills Section -->
