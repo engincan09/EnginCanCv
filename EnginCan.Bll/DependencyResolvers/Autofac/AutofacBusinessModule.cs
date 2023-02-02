@@ -51,6 +51,8 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
             builder.RegisterType<LookupTypeRepository>().As<ILookupTypeRepository>().InstancePerLifetimeScope();
             builder.RegisterType<PageRepository>().As<IPageRepository>().InstancePerLifetimeScope();
             builder.RegisterType<PagePermissionRepository>().As<IPagePermissionRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<SettingRepository>().As<ISettingRepository>().InstancePerLifetimeScope();
+
             #endregion
 
             #region User

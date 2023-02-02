@@ -114,7 +114,6 @@ export class QualificationComponent implements OnInit {
   getQualification(id: number) {
     this.qualificationService.getQualification(id).subscribe((res) => {
       this.qualification = res.data;
-      this.qualification.qualificationType = Number(this.qualification.qualificationType);
       this.createQualificationUpdateForm(this.qualification.id);
     });
   }

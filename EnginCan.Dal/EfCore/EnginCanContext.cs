@@ -29,6 +29,7 @@ namespace EnginCan.Dal.EfCore
         public DbSet<LookupType> LookupType { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<PagePermission> PagePermissions { get; set; }
+        public DbSet<Setting> Settings { get; set; }
         #endregion
 
         #region Abouts

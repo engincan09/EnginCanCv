@@ -45,31 +45,6 @@ namespace YurtYonetim.Api
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration) => _configuration = configuration;
 
-        private static void _addServices(ref IServiceCollection services)
-        {
-            #region Abouts
-            services.AddScoped<IAboutRepository, AboutRepository>();
-            #endregion
-
-            #region User
-            services.AddScoped<IRoleRepository, RoleRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
-            #endregion
-
-            #region Systems
-            services.AddScoped<ICustomHttpContextAccessor, CustomHttpContextAccessor>();
-            services.AddScoped<ILookupRepository, LookupRepository>();
-            services.AddScoped<ILookupTypeRepository, LookupTypeRepository>();
-            services.AddScoped<IPageRepository, PageRepository>();
-            services.AddScoped<IPagePermissionRepository, PagePermissionRepository>();
-            #endregion
-
-            services.AddMemoryCache();
-            services.AddSingleton<ICacheManager, MemoryCacheManager>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAutoMapper(typeof(Startup));
