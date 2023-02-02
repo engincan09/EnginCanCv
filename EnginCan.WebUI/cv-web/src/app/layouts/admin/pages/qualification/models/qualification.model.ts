@@ -14,6 +14,9 @@ import { BaseEntity } from "src/app/shared/models/base-entity.model";
         /**Eğitim / iş başlığı */
         baslik: string;
 
+        /**Bölüm/departman bilgisidir. */
+        bolum:string;
+
         /**Yapılan işlere ait açıklama bilgisidir. */
         aciklama: string;
     }

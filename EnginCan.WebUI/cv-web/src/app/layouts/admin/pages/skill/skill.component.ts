@@ -86,17 +86,18 @@ export class SkillComponent implements OnInit {
     });
   }
 
-  createSkillUpdateForm() {
+  createSkillUpdateForm(id:number) {
     this.skillForm = this.formBuilder.group({
-      id: this.skillId,
+      id: id,
       ad: ['', Validators.required],
       oran: ['', Validators.required],
     });
   }
 
-  getSkill(aboutId: number) {
-    this.skillService.getSkill(aboutId).subscribe((res) => {
+  getSkill(id: number) {
+    this.skillService.getSkill(id).subscribe((res) => {
       this.skill = res.data;
+      this.createSkillUpdateForm(this.skill.id);
     });
   }
 

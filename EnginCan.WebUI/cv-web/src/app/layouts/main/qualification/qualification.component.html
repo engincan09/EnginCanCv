@@ -11,8 +11,7 @@
         <h3 class="resume-title">Education</h3>
 
         <div class="resume-item" *ngFor="let data of educationList">
-          <!-- <h4>{{data.baslik}} &amp; Graphic Design</h4> -->
-          <h4>{{data.baslik}}</h4>
+         <h4>{{data.baslik}} &amp; {{data.bolum}}</h4> 
           <h5>{{data.donem}}</h5>
           <p><em>{{data.aciklama}}</em></p>
         </div>
@@ -21,8 +20,7 @@
       <div class="col-lg-6">
         <h3 class="resume-title">Professional Experience</h3>
         <div class="resume-item" *ngFor="let data of jobList">
-          <!-- <h4>{{data.baslik}} &amp; Graphic Design</h4> -->
-          <h4>{{data.baslik}}</h4>
+          <h4>{{data.baslik}} &amp; {{data.bolum}}</h4> 
           <h5>{{data.donem}}</h5>
           <p><em>{{data.aciklama}}</em></p>
         </div>

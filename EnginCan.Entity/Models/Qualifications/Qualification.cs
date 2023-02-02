@@ -31,6 +31,11 @@ namespace EnginCan.Entity.Models.Qualifications
         public string Baslik { get; set; }
 
         /// <summary>
+        /// Bölüm/departman bilgisidir
+        /// </summary>
+        public string Bolum { get; set; }
+
+        /// <summary>
         /// Yapılan işlere ait açıklama bilgisidir.
         /// </summary>
         public string Aciklama { get; set; }

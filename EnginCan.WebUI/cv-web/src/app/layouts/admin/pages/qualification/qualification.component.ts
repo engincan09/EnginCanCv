@@ -7,7 +7,11 @@ import { DataStatus } from 'src/app/shared/models/base-entity.model';
 import { ConfirmationDialogService } from 'src/app/shared/services/confirmation-dialog.service';
 import { CustomvalidationService } from 'src/app/shared/services/custom-validation.service';
 import { environment } from 'src/environments/environment';
-import { Qualification, QualificationType, QualificationTypeDataSource } from './models/qualification.model';
+import {
+  Qualification,
+  QualificationType,
+  QualificationTypeDataSource,
+} from './models/qualification.model';
 import { QualificationService } from './services/qualification.service';
 declare var $;
 
@@ -24,9 +28,9 @@ export class QualificationComponent implements OnInit {
   qualificationId: number;
   qualifications: any[] = [];
   qualificationTypeDataSource = QualificationTypeDataSource;
-  types = Object.values(QualificationType).filter(k => !isNaN(Number(k)));;
+  types = Object.values(QualificationType).filter((k) => !isNaN(Number(k)));
 
-    constructor(
+  constructor(
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private qualificationService: QualificationService,
@@ -50,7 +54,10 @@ export class QualificationComponent implements OnInit {
   saveQualification() {
     this.submitted = true;
     if (this.qualificationForm.valid) {
-      let model: Qualification = Object.assign({}, this.qualificationForm.value);
+      let model: Qualification = Object.assign(
+        {},
+        this.qualificationForm.value
+      );
       model.dataStatus = DataStatus[DataStatus.Activated];
       if (this.qualification.id) {
         this.updateQualification(model);
@@ -62,7 +69,6 @@ export class QualificationComponent implements OnInit {
     }
   }
 
-  
   addQualification(model) {
     this.qualificationService.postQualification(model).subscribe((res) => {
       if (res.success) {
@@ -89,36 +95,45 @@ export class QualificationComponent implements OnInit {
       qualificationType: ['', Validators.required],
       donem: ['', Validators.required],
       baslik: ['', Validators.required],
+      bolum: ['', Validators.required],
       aciklama: ['', Validators.required],
     });
   }
 
-  createQualificationUpdateForm() {
+  createQualificationUpdateForm(id: number) {
     this.qualificationForm = this.formBuilder.group({
-      id: this.qualification.id,
+      id: id,
       qualificationType: ['', Validators.required],
       donem: ['', Validators.required],
       baslik: ['', Validators.required],
+      bolum: ['', Validators.required],
       aciklama: ['', Validators.required],
     });
   }
 
-  getQualification(aboutId: number) {
-    this.qualificationService.getQualification(aboutId).subscribe((res) => {
+  getQualification(id: number) {
+    this.qualificationService.getQualification(id).subscribe((res) => {
       this.qualification = res.data;
+      this.qualification.qualificationType = Number(this.qualification.qualificationType);
+      this.createQualificationUpdateForm(this.qualification.id);
     });
   }
 
   delete(id) {
     if (id) {
       this.confirmationDialogService
-        .confirm('İşlem Onayı', 'Tecrübe/Eğitimi silmek istediğinize emin misiniz ?')
+        .confirm(
+          'İşlem Onayı',
+          'Tecrübe/Eğitimi silmek istediğinize emin misiniz ?'
+        )
         .then((confirmed) => {
           if (confirmed) {
-            this.qualificationService.deleteQualification(id).subscribe((res) => {
-              this.uploadData();
-            });
-          }      
+            this.qualificationService
+              .deleteQualification(id)
+              .subscribe((res) => {
+                this.uploadData();
+              });
+          }
         });
     }
   }
@@ -151,7 +166,7 @@ export class QualificationComponent implements OnInit {
             itemTemplate: function (value, item) {
               var $iconPencil = $('<i>').attr({ class: 'fa fa-pencil p-2' });
               var $iconTrash = $('<i>').attr({ class: 'fa fa-trash p-2' });
-  
+
               var $customEditButton = $('<button>')
                 .attr({
                   class:
@@ -161,10 +176,10 @@ export class QualificationComponent implements OnInit {
                 .attr({ title: 'Düzenle' })
                 .attr({ id: 'btn-edit-' + item.id })
                 .click((e) => {
-                  self.getQualification(item.id);        
+                  self.getQualification(item.id);
                 })
                 .append($iconPencil);
-  
+
               var $customDeleteButton = $('<button>')
                 .attr({ class: 'btn btn-danger btn-xs' })
                 .attr({ role: 'button' })
@@ -174,7 +189,7 @@ export class QualificationComponent implements OnInit {
                   self.delete(item.id);
                 })
                 .append($iconTrash);
-  
+
               return $('<div>')
                 .attr({ class: 'btn-toolbar' })
                 .append($customEditButton)
@@ -194,16 +209,16 @@ export class QualificationComponent implements OnInit {
             width: 150,
             title: 'Tip',
             autosearch: true,
-            itemTemplate: function (value, item){
+            itemTemplate: function (value, item) {
               switch (item.qualificationType) {
                 case QualificationType[QualificationType.Job]:
-                  return "İş Deneyimi"
-                  case QualificationType[QualificationType.Education]:
-                    return "Eğitim"
+                  return 'İş Deneyimi';
+                case QualificationType[QualificationType.Education]:
+                  return 'Eğitim';
                 default:
                   break;
               }
-            }
+            },
           },
           {
             name: 'donem',
@@ -216,8 +231,5 @@ export class QualificationComponent implements OnInit {
         ],
       });
     });
-  
-  
   }
-
 }

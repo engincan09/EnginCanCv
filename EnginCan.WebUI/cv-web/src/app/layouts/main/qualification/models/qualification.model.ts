@@ -1,30 +1,33 @@
-import { BaseEntity } from "src/app/shared/models/base-entity.model";
+import { BaseEntity } from 'src/app/shared/models/base-entity.model';
 
 /**Eğitim ve iş deneyimlerinin tutulduğu tablodur. */
-    export class Qualification extends BaseEntity {
-        /**Tablo tekil bilgisidir */
-        id: number;
+export class Qualification extends BaseEntity {
+  /**Tablo tekil bilgisidir */
+  id: number;
 
-        /**Veri tip bilgisidir. */
-        qualificationType: QualificationType|string;
+  /**Veri tip bilgisidir. */
+  qualificationType: QualificationType | string;
 
-        /**Deneyim/Eğitim dönem bilgisidir. */
-        donem: string;
+  /**Deneyim/Eğitim dönem bilgisidir. */
+  donem: string;
 
-        /**Eğitim / iş başlığı */
-        baslik: string;
+  /**Eğitim / iş başlığı */
+  baslik: string;
 
-        /**Yapılan işlere ait açıklama bilgisidir. */
-        aciklama: string;
-    }
+  /**Bölüm/departman bilgisidir. */
+  bolum: string;
 
-    /**Eğitim / İş tiplerinin tutulduğu enum. */
-    export enum QualificationType {
-        Job=1,
-        Education
-    }
+  /**Yapılan işlere ait açıklama bilgisidir. */
+  aciklama: string;
+}
 
-    export const QualificationTypeDataSource = {
-        [QualificationType.Job]: "İş Deneyimi",
-        [QualificationType.Education]: "Eğitim",
-      }
+/**Eğitim / İş tiplerinin tutulduğu enum. */
+export enum QualificationType {
+  Job = 1,
+  Education,
+}
+
+export const QualificationTypeDataSource = {
+  [QualificationType.Job]: 'İş Deneyimi',
+  [QualificationType.Education]: 'Eğitim',
+};

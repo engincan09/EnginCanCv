@@ -10,7 +10,7 @@
             <form id="quickForm" [formGroup]="qualificationForm" class="p-fluid grid formgrid">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleInputName">Tip*</label>
                       <select class="custom-select" name="qualificationType" formControlName="qualificationType"
@@ -21,7 +21,7 @@
                       
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleInputName">Tecrübe/Eğitim *</label>
                       <input [(ngModel)]="qualification.baslik" type="text" name="baslik" required class="form-control"
@@ -32,7 +32,18 @@
                       </span>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleInputName">Bölüm/Departman *</label>
+                      <input [(ngModel)]="qualification.bolum" type="text" name="bolum" required class="form-control"
+                        formControlName="bolum" id="exampleInputName" placeholder="Bölüm/Departman Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.bolum.touched || submitted) && formControl.bolum.errors?.required">
+                        <sup>*</sup>Lütfen bir bölüm/departman ad giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
                     <div class="form-group">
                       <label for="exampleInputName">Dönem*</label>
                       <input [(ngModel)]="qualification.donem" type="text" name="donem" required class="form-control"
