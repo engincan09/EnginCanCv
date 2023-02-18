@@ -4,14 +4,16 @@ using EnginCan.Dal.EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnginCan.Dal.Migrations
 {
     [DbContext(typeof(EnginCanContext))]
-    partial class EnginCanContextModelSnapshot : ModelSnapshot
+    [Migration("20230218180017_ContactVeriModeliAcildi")]
+    partial class ContactVeriModeliAcildi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -2,10 +2,12 @@
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using EnginCan.Bll.EntityCore.Abstract.Abouts;
+using EnginCan.Bll.EntityCore.Abstract.Contacts;
 using EnginCan.Bll.EntityCore.Abstract.Qualifications;
 using EnginCan.Bll.EntityCore.Abstract.Systems;
 using EnginCan.Bll.EntityCore.Abstract.Users;
 using EnginCan.Bll.EntityCore.Concrete.Abouts;
+using EnginCan.Bll.EntityCore.Concrete.Contacts;
 using EnginCan.Bll.EntityCore.Concrete.Qualifications;
 using EnginCan.Bll.EntityCore.Concrete.Systems;
 using EnginCan.Bll.EntityCore.Concrete.Users;
@@ -67,6 +69,10 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
 
             #region Qualifications
             builder.RegisterType<QualificationRepository>().As<IQualificationRepository>().SingleInstance();
+            #endregion
+
+            #region Contact
+            builder.RegisterType<ContactRepository>().As<IContactRepository>().SingleInstance();
             #endregion
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
