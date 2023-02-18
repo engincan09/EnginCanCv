@@ -1,3 +1,102 @@
-<p>
-  setting works!
-</p>
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Ayarlar Güncelle</h3>
+        </div>
+        <div class="card-body">
+          <div class="custom-form">
+            <form id="quickForm" [formGroup]="settingForm" class="p-fluid grid formgrid">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Adres *</label>
+                      <input [(ngModel)]="setting.location" type="text" name="location" required class="form-control"
+                        formControlName="location" id="exampleInputName" placeholder="Adres Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.location.touched || submitted) && formControl.location.errors?.required">
+                        <sup>*</sup>Lütfen bir adres giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleInputName">Mail *</label>
+                      <input [(ngModel)]="setting.email" type="email" name="email" required class="form-control"
+                        formControlName="email" id="exampleInputName" placeholder="Mail Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.email.touched || submitted) && formControl.email.errors?.required">
+                        <sup>*</sup>Lütfen bir mail adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="exampleInputName">Telefon Numarası *</label>
+                      <input [(ngModel)]="setting.phoneNumber" type="phoneNumber" name="phoneNumber" required class="form-control"
+                        formControlName="phoneNumber" id="exampleInputName" placeholder="Telefon Numarası Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.phoneNumber.touched || submitted) && formControl.phoneNumber.errors?.required">
+                        <sup>*</sup>Lütfen bir telefon numarası giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Twitter Adresi *</label>
+                      <input [(ngModel)]="setting.twitterProfile" type="text" name="twitterProfile" required class="form-control"
+                        formControlName="twitterProfile" id="exampleInputName" placeholder="Twitter Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.twitterProfile.touched || submitted) && formControl.twitterProfile.errors?.required">
+                        <sup>*</sup>Lütfen bir twitter adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Instagram Adresi *</label>
+                      <input [(ngModel)]="setting.instagramProfile" type="text" name="instagramProfile" required class="form-control"
+                        formControlName="instagramProfile" id="exampleInputName" placeholder="Instragram Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.instagramProfile.touched || submitted) && formControl.instagramProfile.errors?.required">
+                        <sup>*</sup>Lütfen bir instagram adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Facebook Adresi *</label>
+                      <input [(ngModel)]="setting.facebookProfile" type="text" name="facebookProfile" required class="form-control"
+                        formControlName="facebookProfile" id="exampleInputName" placeholder="Facebook Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.facebookProfile.touched || submitted) && formControl.facebookProfile.errors?.required">
+                        <sup>*</sup>Lütfen bir facebook adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputName">Linkedin Adresi *</label>
+                      <input [(ngModel)]="setting.linkedinProfile" type="text" name="linkedinProfile" required class="form-control"
+                        formControlName="linkedinProfile" id="exampleInputName" placeholder="Linkedin Adresi Giriniz" required>
+                      <span class="text-danger ml-1"
+                        *ngIf="(formControl.linkedinProfile.touched || submitted) && formControl.linkedinProfile.errors?.required">
+                        <sup>*</sup>Lütfen bir linkedin adresi giriniz!
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary"
+                  (click)="saveSetting()">{{setting?.id?'Güncelle':'Kaydet'}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

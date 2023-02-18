@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20230112170831_SkillTablosuAcildi.cs" />
     <Compile Remove="Migrations\20230112170831_SkillTablosuAcildi.Designer.cs" />
+    <Compile Remove="Migrations\20230218162813_AyarlarSayfasiEklendi.cs" />
+    <Compile Remove="Migrations\20230218162813_AyarlarSayfasiEklendi.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />

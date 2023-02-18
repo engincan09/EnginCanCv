@@ -16,14 +16,10 @@ namespace EnginCan.Api.Controllers.Systems
         /// Yapıcı method.
         /// </summary>
         /// <param name="service"></param>
-        /// <param name="SettingPermissionRepository"></param>
-        /// <param name="customHttpContextAccessor"></param>
-        public SettingController(SettingRepository service)
+        public SettingController(ISettingRepository service)
         {
             _service = service;
         }
-
-
 
         /// <summary>
         /// Tekil bilgisine göre sistem ayarı döndürür

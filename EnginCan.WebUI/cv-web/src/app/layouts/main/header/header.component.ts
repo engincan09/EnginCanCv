@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Typed from 'typed.js';
+import { Setting } from '../../admin/pages/setting/models/setting.model';
+import { SettingService } from '../../admin/pages/setting/services/setting.service';
 declare var $: any;
 @Component({
   selector: 'in-header',
@@ -7,8 +9,10 @@ declare var $: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  setting: Setting = new Setting();
+  settingId: number;
 
-  constructor() { }
+  constructor(private settingService: SettingService) { }
 
   ngOnInit() {
     // Typed Initiate
@@ -22,6 +26,13 @@ export class HeaderComponent implements OnInit {
         backDelay: 2000
       });
     }
+    this.settingId = 1;
+    this.getSetting(this.settingId);
   }
 
+  getSetting(settingId: number) {
+    this.settingService.getSetting(settingId).subscribe((res) => {
+      this.setting = res.data;
+    });
+  }
 }

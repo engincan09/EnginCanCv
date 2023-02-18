@@ -185,6 +185,18 @@ namespace EnginCan.Dal.EfCore.Seed.Systems
                     Icon = "fa fa-id-badge",
                     MenuShow = true
                 },
+                 new Page
+                {
+                    Id = 20,
+                    ParentId = 1,
+                    Order = 1,
+                    Name = "Ayarlar",
+                    AllName = "Yönetim Paneli / Ayarlar",
+                    RouterLink = "/ayarlar",
+                    AllRouterLink = "/yonetim/ayarlar",
+                    Icon = "fa fa-cogs",
+                    MenuShow = true
+                },
         };
         public static void Create(ModelBuilder modelBuilder)
         {

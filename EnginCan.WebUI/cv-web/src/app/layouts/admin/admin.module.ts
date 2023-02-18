@@ -1,3 +1,4 @@
+import { SettingComponent } from './pages/setting/setting.component';
 import { AdminRoutes } from './admin.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -12,7 +13,7 @@ import { DashboardLayoutModule } from 'src/app/shared/layouts/dashboard-layout/d
 
 
 @NgModule({
-  declarations: [AdminComponent,MainHomeComponent,QualificationComponent,AboutComponent,SkillComponent],
+  declarations: [AdminComponent,MainHomeComponent,QualificationComponent,AboutComponent,SkillComponent,SettingComponent],
   providers:[DatePipe],
   imports: [
     CommonModule,

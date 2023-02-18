@@ -126,6 +126,12 @@ namespace YurtYonetim.Api
                     }
                 });
             });
+
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp";
+            });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -134,6 +140,11 @@ namespace YurtYonetim.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
+
 
             var cultureInfo = new CultureInfo("en-US");
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
@@ -150,6 +161,12 @@ namespace YurtYonetim.Api
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            if (!env.IsDevelopment())
+                app.UseSpa(spa =>
+                {
+                    spa.Options.SourcePath = "ClientApp";
+                });
 
             app.UseSwagger();
 

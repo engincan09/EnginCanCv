@@ -15,9 +15,9 @@ export const environment = {
   isMiniNavbar: true,
   canTransferTurnsPurchase: true,
   api: <Api>{
-    endpoint: 'http://45.139.198.121:8001/api',
+    endpoint: 'http://45.139.198.121/api',
     token: `${name}-dashboard`,
-    contentRootPath: 'http://45.139.198.121:8001/api/docs/',
+    contentRootPath: 'http://45.139.198.121/api/docs/',
   },
 };
 

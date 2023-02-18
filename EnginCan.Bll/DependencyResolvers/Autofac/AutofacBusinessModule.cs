@@ -2,21 +2,21 @@
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using EnginCan.Bll.EntityCore.Abstract.Abouts;
+using EnginCan.Bll.EntityCore.Abstract.Qualifications;
 using EnginCan.Bll.EntityCore.Abstract.Systems;
 using EnginCan.Bll.EntityCore.Abstract.Users;
 using EnginCan.Bll.EntityCore.Concrete.Abouts;
+using EnginCan.Bll.EntityCore.Concrete.Qualifications;
 using EnginCan.Bll.EntityCore.Concrete.Systems;
 using EnginCan.Bll.EntityCore.Concrete.Users;
 using EnginCan.Core.Helpers.Interceptors;
 using EnginCan.Core.Middleware;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+using EnginCan.Dal.EfCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
-using EnginCan.Dal.EfCore;
-using EnginCan.Bll.EntityCore.Concrete.Qualifications;
-using EnginCan.Bll.EntityCore.Abstract.Qualifications;
 
 namespace EnginCan.Bll.DependencyResolvers.Autofac
 {

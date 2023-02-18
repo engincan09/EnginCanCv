@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MainHomeComponent } from './pages/main-home/main-home.component';
 import { QualificationComponent } from './pages/qualification/qualification.component';
+import { SettingComponent } from './pages/setting/setting.component';
 import { SkillComponent } from './pages/skill/skill.component';
 
 
@@ -30,11 +31,18 @@ export const AdminRoutes: Routes = [
         data: { pageId: 18 },
         canActivate: [AuthGuardService],
         component: SkillComponent
-      }, {
+      },
+      {
         path: 'tecrube-egitim',
         data: { pageId: 19 },
         canActivate: [AuthGuardService],
         component: QualificationComponent
+      },
+      {
+        path: 'ayarlar',
+        data: { pageId: 20 },
+        canActivate: [AuthGuardService],
+        component: SettingComponent
       },
       {
         path: '**',
