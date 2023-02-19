@@ -1,0 +1,23 @@
+<in-spinner></in-spinner>
+<div class="content">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">İletişim Talep Listesi</h3>
+        </div>
+        <div class="card-body">
+          <div id="jsGrid1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<p-dialog header="{{header}} adlı kişiye yanıt gönder!" [(visible)]="displayDialog" [style]="{width: '50vw'}">
+  <textarea [(ngModel)]="responseDto.response"
+  placeholder="Cevabınızı giriniz!" class="form-control" rows="7"></textarea>
+  <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="postResponse()" label="Yanıtla" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

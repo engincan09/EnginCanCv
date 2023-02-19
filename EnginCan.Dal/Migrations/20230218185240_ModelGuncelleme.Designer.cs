@@ -4,14 +4,16 @@ using EnginCan.Dal.EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnginCan.Dal.Migrations
 {
     [DbContext(typeof(EnginCanContext))]
-    partial class EnginCanContextModelSnapshot : ModelSnapshot
+    [Migration("20230218185240_ModelGuncelleme")]
+    partial class ModelGuncelleme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -295,57 +297,6 @@ namespace EnginCan.Dal.Migrations
                             Id = 12,
                             Name = "Döviz"
                         });
-                });
-
-            modelBuilder.Entity("EnginCan.Entity.Models.Systems.MailConfiguration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Auth")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("CreatedUserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DataStatus")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DisplayName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EnableSsl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Host")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastUpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("LastUpdatedUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Port")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sender")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MailConfiguration");
                 });
 
             modelBuilder.Entity("EnginCan.Entity.Models.Systems.Page", b =>

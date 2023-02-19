@@ -19,6 +19,8 @@
         //Kayıt bulunamadı
 
         public static string NoData = "İlgili kayıt bulunamadı!";
+
+        public static string EmailSuccess = "Mail gönderildi!";
         #endregion
     }
 }

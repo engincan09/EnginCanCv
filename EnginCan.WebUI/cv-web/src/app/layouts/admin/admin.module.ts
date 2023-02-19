@@ -1,3 +1,4 @@
+import { IletisimTalepleriComponent } from './pages/iletisim-talepleri/iletisim-talepleri.component';
 import { SettingComponent } from './pages/setting/setting.component';
 import { AdminRoutes } from './admin.routing';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,7 @@ import { DashboardLayoutModule } from 'src/app/shared/layouts/dashboard-layout/d
 
 
 @NgModule({
-  declarations: [AdminComponent,MainHomeComponent,QualificationComponent,AboutComponent,SkillComponent,SettingComponent],
+  declarations: [AdminComponent,MainHomeComponent,IletisimTalepleriComponent,QualificationComponent,AboutComponent,SkillComponent,SettingComponent],
   providers:[DatePipe],
   imports: [
     CommonModule,

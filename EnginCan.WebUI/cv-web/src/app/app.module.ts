@@ -8,9 +8,10 @@ import { LOCALE_ID } from '@angular/core';
 import localeTr from '@angular/common/locales/tr';
 import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ToastrModule} from "ngx-toastr";
 import { LoginComponent } from './layouts/admin/login/login.component';
+import { LoadingInterceptor } from './shared/incerteptors/loading.interceptor';
 
 registerLocaleData(localeTr, 'tr-TR');
 
@@ -35,6 +36,11 @@ registerLocaleData(localeTr, 'tr-TR');
     {
       provide: LOCALE_ID,
       useValue: 'tr-TR',
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

@@ -11,6 +11,7 @@ using EnginCan.Bll.EntityCore.Concrete.Contacts;
 using EnginCan.Bll.EntityCore.Concrete.Qualifications;
 using EnginCan.Bll.EntityCore.Concrete.Systems;
 using EnginCan.Bll.EntityCore.Concrete.Users;
+using EnginCan.Bll.Services.Mail;
 using EnginCan.Core.Helpers.Interceptors;
 using EnginCan.Core.Middleware;
 using EnginCan.Dal.EfCore;
@@ -54,6 +55,7 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
             builder.RegisterType<PageRepository>().As<IPageRepository>().InstancePerLifetimeScope();
             builder.RegisterType<PagePermissionRepository>().As<IPagePermissionRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SettingRepository>().As<ISettingRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<MailConfigurationRepository>().As<IMailConfigurationRepository>().InstancePerLifetimeScope();
 
             #endregion
 
@@ -68,11 +70,15 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
             #endregion
 
             #region Qualifications
-            builder.RegisterType<QualificationRepository>().As<IQualificationRepository>().SingleInstance();
+            builder.RegisterType<QualificationRepository>().As<IQualificationRepository>().InstancePerLifetimeScope();
             #endregion
 
             #region Contact
-            builder.RegisterType<ContactRepository>().As<IContactRepository>().SingleInstance();
+            builder.RegisterType<ContactRepository>().As<IContactRepository>().InstancePerLifetimeScope();
+            #endregion
+
+            #region Services
+            builder.RegisterType<MailService>().As<IMailService>().InstancePerLifetimeScope();
             #endregion
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

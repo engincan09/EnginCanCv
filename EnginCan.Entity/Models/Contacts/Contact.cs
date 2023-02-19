@@ -34,5 +34,10 @@ namespace EnginCan.Entity.Models.Contacts
         /// Mesaj içeriği
         /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        /// True: Yanıt verildi,  False: yanıt verilmedi
+        /// </summary>
+        public bool IsResponse { get; set; }
     }
 }

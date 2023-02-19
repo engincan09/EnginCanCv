@@ -12,7 +12,8 @@ import { InLoadingPopupComponent } from './tools/in-loading-popup/in-loading-pop
 import { ConfirmationDialogService } from './services/confirmation-dialog.service';
 import { NgxOrgChartModule } from 'ngx-org-chart';
 import {CalendarModule} from 'primeng/calendar';
-
+import { InSpinnerComponent } from './tools/in-spinner/in-spinner.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
     imports: [
@@ -23,11 +24,13 @@ import {CalendarModule} from 'primeng/calendar';
         NgxOrgChartModule,
         InputMaskModule,
         CalendarModule,
+        DialogModule
     ],
     declarations: [
         InLoadingPopupComponent,
         ConfirmationDialogComponent,
-        InImageCropperComponent
+        InImageCropperComponent,
+        InSpinnerComponent
     ],
     providers: [ ConfirmationDialogService, DocsService,HelpersService ],
     exports: [
@@ -39,7 +42,9 @@ import {CalendarModule} from 'primeng/calendar';
         InLoadingPopupComponent,
         InImageCropperComponent,
         InputMaskModule,
-        CalendarModule
+        CalendarModule,
+        InSpinnerComponent,
+        DialogModule
     ],
     entryComponents: [ ConfirmationDialogComponent ],
 

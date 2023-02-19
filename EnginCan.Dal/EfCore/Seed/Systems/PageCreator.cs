@@ -185,7 +185,7 @@ namespace EnginCan.Dal.EfCore.Seed.Systems
                     Icon = "fa fa-id-badge",
                     MenuShow = true
                 },
-                 new Page
+                new Page
                 {
                     Id = 20,
                     ParentId = 1,
@@ -195,6 +195,18 @@ namespace EnginCan.Dal.EfCore.Seed.Systems
                     RouterLink = "/ayarlar",
                     AllRouterLink = "/yonetim/ayarlar",
                     Icon = "fa fa-cogs",
+                    MenuShow = true
+                },
+                new Page
+                {
+                    Id = 21,
+                    ParentId = 1,
+                    Order = 1,
+                    Name = "İletişim Talepleri",
+                    AllName = "Yönetim Paneli / İletişim Talepleri",
+                    RouterLink = "/iletisim-talepleri",
+                    AllRouterLink = "/yonetim/iletisim-talepleri",
+                    Icon = "fa fa-telegram",
                     MenuShow = true
                 },
         };

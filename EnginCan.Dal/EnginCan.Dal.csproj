@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20230112170831_SkillTablosuAcildi.Designer.cs" />
     <Compile Remove="Migrations\20230218162813_AyarlarSayfasiEklendi.cs" />
     <Compile Remove="Migrations\20230218162813_AyarlarSayfasiEklendi.Designer.cs" />
+    <Compile Remove="Migrations\20230219062143_MailConfigTablosuAcildi.cs" />
+    <Compile Remove="Migrations\20230219062143_MailConfigTablosuAcildi.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />

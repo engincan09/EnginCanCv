@@ -31,6 +31,7 @@ namespace EnginCan.Dal.EfCore
         public DbSet<Page> Pages { get; set; }
         public DbSet<PagePermission> PagePermissions { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<MailConfiguration> MailConfiguration { get; set; }
         #endregion
 
         #region Abouts

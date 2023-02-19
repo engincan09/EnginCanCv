@@ -1,3 +1,4 @@
+import { IletisimTalepleriComponent } from './pages/iletisim-talepleri/iletisim-talepleri.component';
 import { Routes } from '@angular/router';
 import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 import { AdminComponent } from './admin.component';
@@ -43,6 +44,12 @@ export const AdminRoutes: Routes = [
         data: { pageId: 20 },
         canActivate: [AuthGuardService],
         component: SettingComponent
+      },
+      {
+        path: 'iletisim-talepleri',
+        data: { pageId: 21 },
+        canActivate: [AuthGuardService],
+        component: IletisimTalepleriComponent
       },
       {
         path: '**',

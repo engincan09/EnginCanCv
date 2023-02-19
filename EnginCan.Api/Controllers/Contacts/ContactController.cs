@@ -1,4 +1,5 @@
 ﻿using EnginCan.Bll.EntityCore.Abstract.Contacts;
+using EnginCan.Dto.Contacts;
 using EnginCan.Entity.Models.Contacts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -92,6 +93,21 @@ namespace EnginCan.Api.Controllers.Contacts
         public IActionResult DeleteContact([FromRoute] int id)
         {
             var result = _service.DeleteContact(id);
+            if (result.Success)
+                return Ok(result);
+            else
+                return Ok(result);
+        }
+
+        /// <summary>
+        /// İletişim yanıtını mail olarak gönderir.
+        /// </summary>
+        [HttpPost, Route("PostResponse")]
+        [Authorize]
+        [Produces("application/json")]
+        public IActionResult PostResponse([FromBody] ResponseDto responseDto)
+        {
+            var result = _service.PostResponse(responseDto);
             if (result.Success)
                 return Ok(result);
             else

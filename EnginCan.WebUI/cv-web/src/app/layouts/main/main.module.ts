@@ -11,10 +11,12 @@ import { MainRoutes } from './main.routing';
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header/header.component';
 import { SkillComponent } from './skill/skill.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [MainComponent,MainComponent,ContactComponent,FooterComponent,SkillComponent,NavbarComponent,HeaderComponent,AboutComponent,QualificationComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(MainRoutes),
   ]
 })

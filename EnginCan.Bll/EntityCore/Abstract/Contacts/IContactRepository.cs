@@ -1,5 +1,6 @@
 ﻿using EnginCan.Core.Utilities.Results.Abstract;
 using EnginCan.Dal.EfCore.Abstract;
+using EnginCan.Dto.Contacts;
 using EnginCan.Entity.Models.Contacts;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,7 @@ namespace EnginCan.Bll.EntityCore.Abstract.Contacts
         IResult AddContact(Contact contact);
         IResult UpdateContact(Contact contact);
         IResult DeleteContact(int id);
+        IResult PostResponse(ResponseDto responseDto);
+
     }
 }

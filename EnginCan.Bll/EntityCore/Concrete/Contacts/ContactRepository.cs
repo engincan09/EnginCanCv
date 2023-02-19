@@ -1,22 +1,28 @@
 ﻿using EnginCan.Bll.EntityCore.Abstract.Contacts;
 using EnginCan.Bll.Helpers;
+using EnginCan.Bll.Services.Mail;
 using EnginCan.Core.Utilities.Results.Abstract;
 using EnginCan.Core.Utilities.Results.Concrete;
 using EnginCan.Dal.EfCore;
 using EnginCan.Dal.EfCore.Concrete;
+using EnginCan.Dto.Contacts;
 using EnginCan.Entity.Models.Abouts;
 using EnginCan.Entity.Models.Contacts;
 using EnginCan.Entity.Shared;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EnginCan.Bll.EntityCore.Concrete.Contacts
 {
     public class ContactRepository : EntityBaseRepository<Contact>, IContactRepository
     {
-        public ContactRepository(EnginCanContext context) : base(context)
+        private readonly IMailService _mailService;
+        public ContactRepository(EnginCanContext context, IMailService mailService) : base(context)
         {
+            _mailService = mailService;
         }
 
         /// <summary>
@@ -115,6 +121,22 @@ namespace EnginCan.Bll.EntityCore.Concrete.Contacts
             {
                 return new ErrorDataResult<About>(null, SystemConstants.UpdatedErrorMessage);
             }
+        }
+
+        /// <summary>
+        /// İletişim yanıtını mail olarak gönderir.
+        /// </summary>
+        public IResult PostResponse(ResponseDto responseDto)
+        {
+            var contact = FindBy(m => m.Id == responseDto.ContactId).FirstOrDefault();
+            if (contact == null)
+                return new ErrorDataResult<About>(null, SystemConstants.NoData);
+
+            var newMailMessage = _mailService.NewMailMessage(new List<MailboxAddress>(), "Engin Can - Yanıt", responseDto.Response);
+
+            _mailService.SendAsync(newMailMessage);
+
+            return new SuccessResult(SystemConstants.EmailSuccess);
         }
     }
 }
