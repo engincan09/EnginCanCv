@@ -15,9 +15,9 @@ export const environment = {
   isMiniNavbar: true,
   canTransferTurnsPurchase: true,
   api: <Api>{
-    endpoint: 'http://45.139.198.121/api',
+    endpoint: 'https://engincan.net/api',
     token: `${name}-dashboard`,
-    contentRootPath: 'http://45.139.198.121/api/docs/',
+    contentRootPath: 'https://engincan.net/docs/',
   },
 };
 
