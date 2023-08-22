@@ -1,12 +1,63 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EnginCan.Dal.Migrations
 {
-    public partial class Inital : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "About",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    FullName = table.Column<string>(nullable: true),
+                    DogumTarih = table.Column<string>(nullable: true),
+                    MezuniyetDurum = table.Column<string>(nullable: true),
+                    DeneyimSuresi = table.Column<short>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    OzetMetin = table.Column<string>(nullable: true),
+                    AltAciklama = table.Column<string>(nullable: true),
+                    Yas = table.Column<short>(nullable: false),
+                    Url = table.Column<string>(nullable: true),
+                    Sehir = table.Column<string>(nullable: true),
+                    Photo = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_About", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    FullName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    Subject = table.Column<string>(nullable: true),
+                    Message = table.Column<string>(nullable: true),
+                    IsResponse = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contact", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "LookupType",
                 columns: table => new
@@ -18,6 +69,31 @@ namespace EnginCan.Dal.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LookupType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MailConfiguration",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    Sender = table.Column<string>(nullable: true),
+                    DisplayName = table.Column<string>(nullable: true),
+                    Host = table.Column<string>(nullable: true),
+                    Port = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    EnableSsl = table.Column<string>(nullable: true),
+                    Auth = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MailConfiguration", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,15 +126,37 @@ namespace EnginCan.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Qualification",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    QualificationType = table.Column<int>(nullable: false),
+                    Donem = table.Column<string>(nullable: true),
+                    Baslik = table.Column<string>(nullable: true),
+                    Bolum = table.Column<string>(nullable: true),
+                    Aciklama = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Qualification", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 100, nullable: false)
                 },
@@ -68,15 +166,58 @@ namespace EnginCan.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Settings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    TwitterProfile = table.Column<string>(nullable: true),
+                    InstagramProfile = table.Column<string>(nullable: true),
+                    FacebookProfile = table.Column<string>(nullable: true),
+                    LinkedinProfile = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Settings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Skill",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CreatedUserId = table.Column<int>(nullable: true),
+                    LastUpdatedUserId = table.Column<int>(nullable: true),
+                    DataStatus = table.Column<int>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
+                    LastUpdatedAt = table.Column<DateTime>(nullable: true),
+                    Ad = table.Column<string>(nullable: true),
+                    Oran = table.Column<short>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Skill", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     Surname = table.Column<string>(maxLength: 150, nullable: false),
@@ -97,11 +238,11 @@ namespace EnginCan.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(nullable: true),
                     LookupTypeId = table.Column<int>(nullable: true),
                     ParentId = table.Column<int>(nullable: true),
@@ -133,11 +274,11 @@ namespace EnginCan.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(nullable: true),
                     UserId = table.Column<int>(nullable: true),
                     RoleId = table.Column<int>(nullable: true),
@@ -172,11 +313,11 @@ namespace EnginCan.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedUserId = table.Column<int>(nullable: true),
                     LastUpdatedUserId = table.Column<int>(nullable: true),
                     DataStatus = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: true),
                     LastUpdatedAt = table.Column<DateTime>(nullable: true),
                     UserId = table.Column<int>(nullable: false),
                     RoleId = table.Column<int>(nullable: false)
@@ -203,7 +344,7 @@ namespace EnginCan.Dal.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     UserId = table.Column<int>(nullable: false),
                     Token = table.Column<string>(maxLength: 1500, nullable: true),
                     RequestHeader = table.Column<string>(nullable: true),
@@ -259,7 +400,12 @@ namespace EnginCan.Dal.Migrations
                 values: new object[,]
                 {
                     { 2, "Yönetim Paneli / Ana Sayfa", "/yonetim/ana-sayfa", null, null, false, "fa fa-home", true, "Ana Sayfa", (short)0, 1, "/ana-sayfa", null },
-                    { 3, "Yönetim Paneli / İdari İşler", "/yonetim/idari-isler", null, null, false, "fa fa-copy", true, "İdari İşler", (short)1, 1, "/idari-isler", null }
+                    { 3, "Yönetim Paneli / İdari İşler", "/yonetim/idari-isler", null, null, false, "fa fa-copy", true, "İdari İşler", (short)1, 1, "/idari-isler", null },
+                    { 17, "Yönetim Paneli / Hakkımda", "/yonetim/hakkimda", null, null, false, "fa fa-address-card", true, "Hakkımda", (short)1, 1, "/hakkimda", null },
+                    { 18, "Yönetim Paneli / Yetenekler", "/yonetim/yetenekler", null, null, false, "fa fa-list", true, "Yetenekler", (short)1, 1, "/yetenekler", null },
+                    { 19, "Yönetim Paneli / Tecrübe-Eğitim", "/yonetim/tecrube-egitim", null, null, false, "fa fa-id-badge", true, "Tecrübe-Eğitim", (short)1, 1, "/tecrube-egitim", null },
+                    { 20, "Yönetim Paneli / Ayarlar", "/yonetim/ayarlar", null, null, false, "fa fa-cogs", true, "Ayarlar", (short)1, 1, "/ayarlar", null },
+                    { 21, "Yönetim Paneli / İletişim Talepleri", "/yonetim/iletisim-talepleri", null, null, false, "fa fa-telegram", true, "İletişim Talepleri", (short)1, 1, "/iletisim-talepleri", null }
                 });
 
             migrationBuilder.InsertData(
@@ -273,7 +419,12 @@ namespace EnginCan.Dal.Migrations
                 values: new object[,]
                 {
                     { 2, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 2, 1, null },
-                    { 3, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 3, 1, null }
+                    { 3, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 3, 1, null },
+                    { 17, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 17, 1, null },
+                    { 18, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 18, 1, null },
+                    { 19, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 19, 1, null },
+                    { 20, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 20, 1, null },
+                    { 21, new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, false, null, null, 21, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -371,10 +522,28 @@ namespace EnginCan.Dal.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "About");
+
+            migrationBuilder.DropTable(
+                name: "Contact");
+
+            migrationBuilder.DropTable(
                 name: "Lookup");
 
             migrationBuilder.DropTable(
+                name: "MailConfiguration");
+
+            migrationBuilder.DropTable(
                 name: "PagePermissions");
+
+            migrationBuilder.DropTable(
+                name: "Qualification");
+
+            migrationBuilder.DropTable(
+                name: "Settings");
+
+            migrationBuilder.DropTable(
+                name: "Skill");
 
             migrationBuilder.DropTable(
                 name: "UserRoles");

@@ -29,6 +29,8 @@ using System;
 using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
+using EnginCan.Core.Elastic.Models;
+using SixLabors.ImageSharp;
 
 namespace YurtYonetim.Api
 {
@@ -49,7 +51,9 @@ namespace YurtYonetim.Api
         {
             //services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<EnginCanContext>(options =>
-                                                         options.UseSqlServer(_configuration.GetConnectionString("Default")), ServiceLifetime.Transient);
+                                                          options.UseNpgsql(_configuration.GetConnectionString("Default")), ServiceLifetime.Transient);
+
+            //services.Configure<ElasticConnectionSettings>(_configuration.GetSection("ElasticConnectionSettings"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

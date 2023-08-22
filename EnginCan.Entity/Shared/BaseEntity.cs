@@ -25,7 +25,7 @@ namespace EnginCan.Entity.Shared
         /// <summary>
         /// Kaydın oluşturulma zaman bilgisidir.
         /// </summary>
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
         /// Kaydın güncellenme zaman bilgisidir.

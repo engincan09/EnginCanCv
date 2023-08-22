@@ -34,11 +34,11 @@ namespace EnginCan.Bll.DependencyResolvers.Autofac
                 var dbContextOptions = new DbContextOptions<EnginCanContext>(new Dictionary<Type, IDbContextOptionsExtension>());
                 var optionsBuilder = new DbContextOptionsBuilder<EnginCanContext>(dbContextOptions)
                     .UseApplicationServiceProvider(serviceProvider)
-                    .UseSqlServer(configuration.GetConnectionString("Default"),
+                    .UseNpgsql(configuration.GetConnectionString("Default"),
                         serverOptions => serverOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(30), null));
                 return optionsBuilder.Options;
             }).As<DbContextOptions<EnginCanContext>>()
-        .InstancePerLifetimeScope();
+         .InstancePerLifetimeScope();
 
             builder.Register(context => context.Resolve<DbContextOptions<EnginCanContext>>())
                 .As<DbContextOptions>()

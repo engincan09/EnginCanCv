@@ -12,6 +12,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
     <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="NEST" Version="7.9.0" />
+
   </ItemGroup>
 
   <ItemGroup>
